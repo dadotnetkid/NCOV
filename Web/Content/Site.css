@@ -108,3 +108,26 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 .dxeCLLSys label.quarries {
     max-width: 500px !important;
 }
+
+#dashboard h1.title{
+    font-size: 180px !important;
+}
+#dashboard p.count {
+    font-size: 55px !important;
+}
+.small-box {
+    text-decoration: none;
+    color: #f9f9f9 !important;
+}
+
+@media only screen and (max-width: 360px) {
+    #dashboard .count.mobile{
+        font-size: 35px !important;
+    }
+   
+}
+@media only screen and (min-width: 320px) {
+    #dashboard .count.mobile {
+        font-size: 35px !important;
+    }
+}

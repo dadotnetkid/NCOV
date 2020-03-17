@@ -34,5 +34,6 @@ namespace Models
         public virtual DbSet<Actions> Actions { get; set; }
         public virtual DbSet<Provinces> Provinces { get; set; }
         public virtual DbSet<Towns> Towns { get; set; }
+        public virtual DbSet<Patients> Patients { get; set; }
     }
 }

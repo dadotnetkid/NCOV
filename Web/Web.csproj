@@ -180,8 +180,10 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\ControllerActionHelper.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MemberController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -370,6 +372,8 @@
     <Content Include="fonts\ionicons.eot" />
     <Content Include="fonts\ionicons.ttf" />
     <Content Include="fonts\ionicons.woff" />
+    <None Include="Properties\PublishProfiles\CustomProfile.pubxml" />
+    <None Include="Properties\PublishProfiles\CustomProfile1.pubxml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -381,7 +385,9 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -390,8 +396,6 @@
     </Content>
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
@@ -422,6 +426,22 @@
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
     <Content Include="Views\Shared\_nav_profile.cshtml" />
     <Content Include="Views\Shared\_sidebar.cshtml" />
+    <Content Include="Views\Home\PUIPartial.cshtml" />
+    <Content Include="Views\Home\ConfirmedPartial.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Shared\_Layout_admin.cshtml" />
+    <Content Include="Views\Admin\_PatientsGridViewPartial.cshtml" />
+    <Content Include="Views\Member\ChangeForgotPasswordViewPartial.cshtml" />
+    <Content Include="Views\Member\ForgotPopupControlPartial.cshtml" />
+    <Content Include="Views\Member\Login.cshtml" />
+    <Content Include="Views\Member\Register.cshtml" />
+    <Content Include="Views\Member\RegisterPartial.cshtml" />
+    <Content Include="Views\Member\Users.cshtml" />
+    <Content Include="Views\Member\_ForgotPopupControlContentPartial.cshtml" />
+    <Content Include="Views\Member\_UserGridViewPartial.cshtml" />
+    <Content Include="Views\Home\NegativePartial.cshtml" />
+    <Content Include="Views\Home\AwaitingPartial.cshtml" />
+    <Content Include="Views\Home\DeathsPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

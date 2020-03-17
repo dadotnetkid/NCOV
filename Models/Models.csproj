@@ -160,6 +160,9 @@
       <DependentUpon>ModelDb.edmx</DependentUpon>
     </Compile>
     <Compile Include="ModelDbPartial.cs" />
+    <Compile Include="Patients.cs">
+      <DependentUpon>ModelDb.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Provinces.cs">
       <DependentUpon>ModelDb.tt</DependentUpon>

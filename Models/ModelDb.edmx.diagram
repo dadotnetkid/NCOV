@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="2d3af104b4f046ac8514e78536113cee" Name="Diagram1" ZoomLevel="77">
+      <Diagram DiagramId="2d3af104b4f046ac8514e78536113cee" Name="Diagram1" ZoomLevel="50">
         <EntityTypeShape EntityType="Model.UserClaims" Width="1.5" PointX="5.25" PointY="4.625" />
         <EntityTypeShape EntityType="Model.UserLogins" Width="1.5" PointX="5.25" PointY="7.375" />
         <EntityTypeShape EntityType="Model.UserRoles" Width="1.5" PointX="0.75" PointY="5.5" />
@@ -20,6 +20,7 @@
         <EntityTypeShape EntityType="Model.Provinces" Width="1.5" PointX="7.75" PointY="1" />
         <EntityTypeShape EntityType="Model.Towns" Width="1.5" PointX="10" PointY="0.875" />
         <AssociationConnector Association="Model.FK_Towns_Towns" />
+        <EntityTypeShape EntityType="Model.Patients" Width="1.5" PointX="7.375" PointY="6.75" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

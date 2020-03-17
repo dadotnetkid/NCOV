@@ -24,6 +24,22 @@
           <Property Name="DateCreated" Type="datetime2" Precision="7" />
           <Property Name="CreatedBy" Type="nvarchar" MaxLength="128" />
         </EntityType>
+        <EntityType Name="Patients">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Area" Type="nvarchar(max)" />
+          <Property Name="Age" Type="int" />
+          <Property Name="Gender" Type="nvarchar" MaxLength="50" />
+          <Property Name="DateofArrival" Type="datetime" />
+          <Property Name="Country" Type="nvarchar" MaxLength="128" />
+          <Property Name="Result" Type="nvarchar" MaxLength="128" />
+          <Property Name="Status" Type="nvarchar" MaxLength="128" />
+          <Property Name="DateCreated" Type="datetime2" Precision="7" />
+          <Property Name="CreatedBy" Type="nvarchar" MaxLength="128" />
+          <Property Name="Hospital" Type="nvarchar" MaxLength="128" />
+        </EntityType>
         <EntityType Name="Provinces">
           <Key>
             <PropertyRef Name="Id" />
@@ -195,6 +211,7 @@
         <EntityContainer Name="ModelStoreContainer">
           <EntitySet Name="Actions" EntityType="Self.Actions" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Logs" EntityType="Self.Logs" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Patients" EntityType="Self.Patients" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Provinces" EntityType="Self.Provinces" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Towns" EntityType="Self.Towns" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="UserClaims" EntityType="Self.UserClaims" Schema="dbo" store:Type="Tables" />
@@ -266,6 +283,7 @@
             <End Role="Provinces" EntitySet="Provinces" />
             <End Role="Towns" EntitySet="Towns" />
           </AssociationSet>
+          <EntitySet Name="Patients" EntityType="Model.Patients" />
           </EntityContainer>
         <EntityType Name="UserClaims">
           <Key>
@@ -450,6 +468,22 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Patients">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Area" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Age" Type="Int32" />
+          <Property Name="Gender" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DateofArrival" Type="DateTime" Precision="3" />
+          <Property Name="Country" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Result" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="DateCreated" Type="DateTime" Precision="7" />
+          <Property Name="CreatedBy" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="Hospital" Type="String" MaxLength="128" FixedLength="false" Unicode="true" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -574,6 +608,23 @@
                 <ScalarProperty Name="SortOrder" ColumnName="SortOrder" />
                 <ScalarProperty Name="ProvinceId" ColumnName="ProvinceId" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Patients">
+            <EntityTypeMapping TypeName="Model.Patients">
+              <MappingFragment StoreEntitySet="Patients">
+                <ScalarProperty Name="Hospital" ColumnName="Hospital" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="DateCreated" ColumnName="DateCreated" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Result" ColumnName="Result" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="DateofArrival" ColumnName="DateofArrival" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="Area" ColumnName="Area" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
               </MappingFragment>
             </EntityTypeMapping>

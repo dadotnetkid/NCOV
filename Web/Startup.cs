@@ -1,14 +1,16 @@
 ﻿using Microsoft.Owin;
+using Models.Startups;
 using Owin;
+using Web;
 
-[assembly: OwinStartupAttribute(typeof(Web.Startup))]
+[assembly: OwinStartup(typeof(Startup))]
 namespace Web
 {
     public partial class Startup
     {
         public void Configuration(IAppBuilder app)
         {
-            ConfigureAuth(app);
+            Authentication.ConfigureAuth(app);
         }
     }
 }

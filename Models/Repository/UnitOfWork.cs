@@ -15,6 +15,17 @@ namespace Models.Repository
         private ModelDb context = new ModelDb();
 
 
+        private GenericRepository<Patients> _PatientsRepo;
+        public GenericRepository<Patients> PatientsRepo
+        {
+            get
+            {
+                if (this._PatientsRepo == null)
+                    this._PatientsRepo = new GenericRepository<Patients>(context);
+                return _PatientsRepo;
+            }
+            set { _PatientsRepo = value; }
+        }
 
         private GenericRepository<Logs> _LogsRepo;
         public GenericRepository<Logs> LogsRepo
