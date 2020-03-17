@@ -124,10 +124,15 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
     #dashboard .count.mobile{
         font-size: 35px !important;
     }
-   
+   h2.mobile{
+        font-size: 10px !important;
+    }
 }
-@media only screen and (min-width: 320px) {
+@media only screen and (max-width: 320px) {
     #dashboard .count.mobile {
         font-size: 35px !important;
+    }
+    h2.mobile{
+        font-size: 10px !important;
     }
 }
