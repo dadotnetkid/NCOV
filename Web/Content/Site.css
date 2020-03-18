@@ -122,17 +122,34 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
 
 @media only screen and (max-width: 360px) {
     #dashboard .count.mobile{
-        font-size: 35px !important;
+        
     }
    h2.mobile{
         font-size: 10px !important;
     }
 }
-@media only screen and (max-width: 320px) {
-    #dashboard .count.mobile {
-        font-size: 35px !important;
+@media only screen and (max-width: 450px) {
+    #dashboard h1.title   {
+        font-size: 22px !important;
     }
-    h2.mobile{
+    #dashboard p.count {
+        font-size: 12px !important;
+    }
+    .mobile {
         font-size: 10px !important;
     }
+
+    h1.title {
+        font-size: 10px !important;
+    }
+    .small-box {
+        height: 125px !important;
+    }
+}
+#PatientsChart img {
+    max-width: 100% !important;
+    height: auto !important;
+}
+#PatientsChart {
+    height: auto !important;
 }

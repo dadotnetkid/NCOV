@@ -9,36 +9,49 @@
         <h1 style="color: red"> COVID - 19</h1>
         <h1> TRACKER</h1>
         <h2 class="mobile">Data as of @DateTime.Now.ToString("MMM dd, yyyy hh:mm tt")  </h2>
+        <a href="@Url.Action("Print")" class="btn btn-primary">Print</a>
     </div>
 
-    <div class="row">
-        <div class="col-lg-12 col-md-12 col-sm-12">
+    <div class="row ">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             @Html.Action("PUIPartial")
         </div>
+
     </div>
     <div class="row">
-        <div class="col-lg-6 col-md-6 col-sm-6">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
             @Html.Action("AwaitingPartial")
         </div>
 
-        <div class="col-lg-6 col-md-6 col-sm-6">
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
             @Html.Action("NegativePartial")
+        </div>
+
+    </div>
+    <div class="row">
+
+        <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+            @Html.Action("ConfirmedPartial")
+        </div>
+        <div class="col-lg-6 col-md-6 col-sm-6 col-sm-6 col-xs-6">
+            @Html.Action("DeathsPartial")
         </div>
     </div>
     <div class="row">
-        <div class="col-lg-6 col-md-6 col-sm-6">
-            @Html.Action("ConfirmedPartial")
-        </div>
 
-        <div class="col-lg-6 col-md-6 col-sm-6">
-            @Html.Action("DeathsPartial")
-        </div>
     </div>
     <div class="row">
         <div class="col-lg-12">
             <div id="patients">
                 @Html.Action("PatientsGridViewPartial", "Admin")
             </div>
+        </div>
+    </div>
+
+    <div class="row ">
+
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 img-responsive">
+            @Html.Action("ChartPartial")
         </div>
     </div>
     <div class="row">
@@ -49,7 +62,8 @@
                     <b>0917-659-6959</b>
                 </span>
                 <span class="pull-right">
-
+                    Source: Provincial Integrated Health Office
+                    <br />
                     Disclaimer: Information listed in this web page may change at any time due to evolving situation.
                     <br />
                     <br />
@@ -63,5 +77,4 @@
             </div>
         </div>
     </div>
-
 </div>

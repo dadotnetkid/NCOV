@@ -35,6 +35,7 @@
         settings.Columns.Add(col =>
         {
             col.FieldName = "Area";
+            col.Caption = "Municipality";
             col.ColumnType = MVCxGridViewColumnType.ComboBox;
             var cbo = col.PropertiesEdit as ComboBoxProperties;
             cbo.ValueField = "value";
@@ -56,11 +57,22 @@
         settings.Columns.Add(col =>
         {
             col.FieldName = "DateofArrival";
-
+            col.Caption = "Date of Admission";
+            col.SortAscending();
             col.ColumnType = MVCxGridViewColumnType.DateEdit;
 
         });
-        settings.Columns.Add("Hospital");
+        settings.Columns.Add(col =>
+        {
+            col.FieldName = "Hospital";
+            col.Caption = "Admitting Hospital";
+            col.ColumnType = MVCxGridViewColumnType.ComboBox;
+            var cbo = col.PropertiesEdit as ComboBoxProperties;
+            cbo.ValueField = "value";
+            cbo.TextField = "value";
+            cbo.DropDownStyle = DropDownStyle.DropDown;
+            cbo.DataSource = new UnitOfWork().PatientsRepo.Fetch().GroupBy(x => x.Country).Select(x => new { value = x.Key }).ToList();
+        });
         settings.Columns.Add(
         col =>
         {

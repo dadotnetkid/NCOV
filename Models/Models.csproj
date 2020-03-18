@@ -199,6 +199,7 @@
     <Compile Include="ViewModels\LoginViewModel.cs" />
     <Compile Include="ViewModels\ManageViewModels.cs" />
     <Compile Include="ViewModels\RegisterViewModel.cs" />
+    <Compile Include="ViewModels\TrackerViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
