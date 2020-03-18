@@ -37,11 +37,6 @@ namespace Web.Controllers
             ViewBag.negative = negative;
             return PartialView();
         }
-        public ActionResult PatientsPartial()
-        {
-            var model = unitOfWork.PatientsRepo.Get();
-            return PartialView(model);
-        }
 
         public ActionResult DeathsPartial()
         {
@@ -54,6 +49,13 @@ namespace Web.Controllers
             var awaiting = unitOfWork.PatientsRepo.Fetch(m => m.Status == "AWAITING LAB RESULTS").Count();
             ViewBag.Awaiting = awaiting;
             return PartialView();
+        }
+        [AllowAnonymous]
+        [ValidateInput(false)]
+        public ActionResult PatientsGridViewPartial([ModelBinder(typeof(DevExpressEditorsBinder))]string municipality = "")
+        {
+            var model = unitOfWork.PatientsRepo.Get(m => m.Area.Contains(municipality));
+            return PartialView("_PatientsGridViewPartial", model);
         }
 
         public ActionResult Print()
@@ -73,9 +75,16 @@ namespace Web.Controllers
             return PartialView();
         }
 
+        public JsonResult ChartDataPartial()
+        {
+            List<string> municipality = new List<string>() { "VILLAVERDE", "BAGABAG", "DIADI", "DUPAX DEL SUR", "AMBAGUIO", "SANTA FE", "BAMBANG", "BAYOMBONG", "ARITAO", "DUPAX DEL NORTE", "SOLANO", "QUEZON", "KASIBU", "KAYAPA", "ALFONSO CASTANEDA" }.OrderBy(x => x).ToList();
+            var model = municipality.Select(x => new { Municipality = x, Total = unitOfWork.PatientsRepo.Fetch(m => m.Area == x).Count() }); //unitOfWork.PatientsRepo.Fetch().GroupBy(x => x.Area).Select(x => new { Area = x.Key }).ToList().Select(x => new { Area = x.Area, Total
+            return Json(model, JsonRequestBehavior.AllowGet);
+        }
+
         public ActionResult ChartPartial()
         {
-            List<string> municipality = new List<string>() { "VILLAVERDE", "BAGABAG", "DIADI", "BAYOMBONG", "DUPAX DEL SUR", "AMBAGUIO", "SANTA FE", "BAMBANG", "BAYOMBONG", "ARITAO", "DUPAX DEL NORTE", "SOLANO", "QUEZON", "KASIBU", "KAYAPA", "ALFONSO CASTANEDA" }.OrderBy(x => x).ToList();
+            List<string> municipality = new List<string>() { "VILLAVERDE", "BAGABAG", "DIADI", "DUPAX DEL SUR", "AMBAGUIO", "SANTA FE", "BAMBANG", "BAYOMBONG", "ARITAO", "DUPAX DEL NORTE", "SOLANO", "QUEZON", "KASIBU", "KAYAPA", "ALFONSO CASTANEDA" }.OrderBy(x => x).ToList();
             var model = municipality.Select(x => new { Municipality = x, Total = unitOfWork.PatientsRepo.Fetch(m => m.Area == x).Count() }); //unitOfWork.PatientsRepo.Fetch().GroupBy(x => x.Area).Select(x => new { Area = x.Key }).ToList().Select(x => new { Area = x.Area, Total = unitOfWork.PatientsRepo.Fetch(m => m.Area == x.Area).Count() });
             return PartialView("_ChartPartial", model);
         }
