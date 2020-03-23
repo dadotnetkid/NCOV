@@ -37,7 +37,7 @@ namespace Web.Controllers
 
         public ActionResult NegativePartial()
         {
-            var negative = unitOfWork.PatientsRepo.Fetch(m => m.Result == "NEGATIVE").Count();
+            var negative = unitOfWork.PatientsRepo.Fetch(m => m.Result .Contains("NEGATIVE") || m.Result.Contains("DISCHARGE") ).Count();
             ViewBag.negative = negative;
             return PartialView();
         }

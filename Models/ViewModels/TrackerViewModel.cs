@@ -14,7 +14,9 @@ namespace Models.ViewModels
         public int? Total => Patients.Count();
         public int? Awaiting => Patients.Count(m => m.Result  == "AWAITING LAB RESULTS");
         public int? Death=> Patients.Count(m => m.Result == "Dead");
-        public int? Negative => Patients.Count(m => m.Result == "Negative");
+        public int? Negative => Patients.Count(m => m.Result.Contains("NEGATIVE") || m.Result.Contains("DISCHARGE"));
     }
 
 }
+
+//            var negative = unitOfWork.PatientsRepo.Fetch(m => m.Result .Contains("NEGATIVE") || m.Result.Contains("DISCHARGE") ).Count();

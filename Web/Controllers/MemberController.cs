@@ -123,7 +123,7 @@ namespace Web.Controllers
             {
                 return Redirect(returnUrl);
             }
-            return RedirectToAction("Index", "Transactions");
+            return RedirectToAction("Index", "admin");
         }
         [Route("log-off")]
         public ActionResult LogOff()
