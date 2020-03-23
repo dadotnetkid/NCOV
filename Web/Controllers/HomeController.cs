@@ -18,6 +18,10 @@ namespace Web.Controllers
             return View();
         }
 
+        public ActionResult IndexPartial()
+        {
+            return PartialView();
+        }
         public ActionResult PUIPartial()
         {
             var pUI = unitOfWork.PatientsRepo.Fetch().Count();
@@ -26,35 +30,37 @@ namespace Web.Controllers
         }
         public ActionResult ConfirmedPartial()
         {
-            var confirmed = unitOfWork.PatientsRepo.Fetch(m => m.Status == "CONFIRMED").Count();
+            var confirmed = unitOfWork.PatientsRepo.Fetch(m => m.Result == "CONFIRMED").Count();
             ViewBag.Confirmed = confirmed;
             return PartialView();
         }
 
         public ActionResult NegativePartial()
         {
-            var negative = unitOfWork.PatientsRepo.Fetch(m => m.Status == "NEGATIVE").Count();
+            var negative = unitOfWork.PatientsRepo.Fetch(m => m.Result == "NEGATIVE").Count();
             ViewBag.negative = negative;
             return PartialView();
         }
 
         public ActionResult DeathsPartial()
         {
-            var Death = unitOfWork.PatientsRepo.Fetch(m => m.Status == "Death").Count();
+            var Death = unitOfWork.PatientsRepo.Fetch(m => m.Result == "Death").Count();
             ViewBag.Death = Death;
             return PartialView();
         }
         public ActionResult AwaitingPartial()
         {
-            var awaiting = unitOfWork.PatientsRepo.Fetch(m => m.Status == "AWAITING LAB RESULTS").Count();
+            var awaiting = unitOfWork.PatientsRepo.Fetch(m => m.Result == "AWAITING LAB RESULTS").Count();
             ViewBag.Awaiting = awaiting;
             return PartialView();
         }
         [AllowAnonymous]
         [ValidateInput(false)]
-        public ActionResult PatientsGridViewPartial([ModelBinder(typeof(DevExpressEditorsBinder))]string municipality = "")
+        public ActionResult PatientsGridViewPartial([ModelBinder(typeof(DevExpressEditorsBinder))]string municipality = "", [ModelBinder(typeof(DevExpressEditorsBinder))]string status = "")
         {
-            var model = unitOfWork.PatientsRepo.Get(m => m.Area.Contains(municipality));
+            var model = unitOfWork.PatientsRepo.Get(m => m.Area.Contains(municipality) );
+            if(!string.IsNullOrWhiteSpace(status))
+                model = unitOfWork.PatientsRepo.Get(m => m.Result.Contains(status));
             return PartialView("_PatientsGridViewPartial", model);
         }
 

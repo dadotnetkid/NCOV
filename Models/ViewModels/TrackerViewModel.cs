@@ -10,11 +10,11 @@ namespace Models.ViewModels
     public class TrackerViewModel
     {
         public List<Patients> Patients => new UnitOfWork().PatientsRepo.Get().ToList();
-        public int? Confirmed => Patients.Count(m => m.Status == "Confirmed");
+        public int? Confirmed => Patients.Count(m => m.Result == "Confirmed");
         public int? Total => Patients.Count();
-        public int? Awaiting => Patients.Count(m => m.Status == "AWAITING LAB RESULTS");
-        public int? Death=> Patients.Count(m => m.Status == "Dead");
-        public int? Negative => Patients.Count(m => m.Status == "Negative");
+        public int? Awaiting => Patients.Count(m => m.Result  == "AWAITING LAB RESULTS");
+        public int? Death=> Patients.Count(m => m.Result == "Dead");
+        public int? Negative => Patients.Count(m => m.Result == "Negative");
     }
 
 }

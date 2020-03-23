@@ -1,11 +1,11 @@
 ﻿<div id="chartContainer" style="height: 370px !important;max-width: 100%;"></div>
-<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+
 
 
 <script>
-    
-    window.onload = function() {
-        var dataPoints = [];
+
+    $(document).ready(function() {
+            var dataPoints = [];
         var chart = new CanvasJS.Chart("chartContainer",
             {
                 exportEnabled: true,
@@ -27,6 +27,7 @@
                         startAngle: 90,
                         indexLabelOrientation: "vertical",
                         indexLabelFontColor: "white",
+                        showInLegend: false,
                     }
                 ]
             });
@@ -58,8 +59,8 @@
                 }
             });
         }
-       
-       
+
+
         function hideIndexLabel() {
             var length = chart.options.data[0].dataPoints.length;
             for(var i = 0; i < length; i++ ) {
@@ -74,7 +75,7 @@
 
 
         $.getJSON("@Url.Action("ChartDataPartial")", addData);
-    }
+    })
 </script>
 <div class="box box-widget widget-user-2">
     <!-- Add the bg color to the header using any of the bg-* classes -->

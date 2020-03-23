@@ -94,16 +94,7 @@
             cbo.DropDownStyle = DropDownStyle.DropDown;
             cbo.DataSource = new UnitOfWork().PatientsRepo.Fetch().GroupBy(x => x.Result).Select(x => new { value = x.Key }).ToList();
         });
-        settings.Columns.Add(col =>
-        {
-            col.FieldName = "Status";
-            col.ColumnType = MVCxGridViewColumnType.ComboBox;
-            var cbo = col.PropertiesEdit as ComboBoxProperties;
-            cbo.ValueField = "value";
-            cbo.TextField = "value";
-            cbo.DropDownStyle = DropDownStyle.DropDown;
-            cbo.DataSource = new UnitOfWork().PatientsRepo.Fetch().GroupBy(x => x.Status).Select(x => new { value = x.Key }).ToList();
-        });
+    
     });
     if (ViewData["EditError"] != null)
     {
